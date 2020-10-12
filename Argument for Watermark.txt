@@ -1,0 +1,16 @@
+Arguments
+
+These arguments only work in the body
+{MACHINENAME} Machine Name
+{USERNAME} Username
+{USERDNAME} User Domain Name
+{PROCESSORCOUNT} Number of Processors in the Computer
+{email@email.com} Makes clickable to send email
+{TIME} displays current time is hh:mm:ss AM/PM format
+{brown} sets body colour. Colours include black, white, red, green, brown.
+{tblack} sets title colour. Colours include black, white, red, green, brown.
+
+
+ex. (...\Watermark.exe" "Organization Name" "If you need support email {support@email.com}" "Your computer name is {MACHINENAME}")
+ex. (...\Watermark.exe" "The time is" "{TIME}")
+ex. (...\Watermark.exe" "You are logged in as" "{USERNAME})
