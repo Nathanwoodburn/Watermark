@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Watermark")]
-[assembly: AssemblyDescription("Adds Specified Text in the background")]
+[assembly: AssemblyDescription("Adds a watermark to each screen connected to the computer")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Nathan Woodburn")]
 [assembly: AssemblyProduct("Watermark")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

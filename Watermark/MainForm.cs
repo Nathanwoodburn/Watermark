@@ -15,13 +15,13 @@ using Microsoft.Win32;
 
 namespace Watermark
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         string underlinedtext = "Nathan Woodburn";
-        string othertext = "nathan.woodburn2611@gmail.com\nother stuff\n";
+        string othertext = "nathan@woodburn.au\nother stuff\n";
         string oldtext;
         int screennum;
-        public Form1(int screen,string text1,string text2)
+        public MainForm(int screen,string text1,string text2)
         {
             InitializeComponent();
             screennum = screen;
@@ -29,15 +29,12 @@ namespace Watermark
             othertext = text2;
         }
         bool clickable;
-        string email;
-        private void Form1_Load(object sender, EventArgs e)
+        string arg;
+        private void MainForm_Load(object sender, EventArgs e)
         {
             this.SendToBack();
-            clickable = false;
-           
-            label1.Text = underlinedtext;
-            //label2.Text = othertext + "\nMachine Name: " + Environment.MachineName + "\n\n";
-            
+            clickable = false;           
+            label1.Text = underlinedtext;            
             othertext = othertext.Replace("{MACHINENAME}", Environment.MachineName);
             othertext = othertext.Replace("{USERNAME}", Environment.UserName);
             othertext = othertext.Replace("{USERDNAME}", Environment.UserDomainName);
@@ -49,56 +46,56 @@ namespace Watermark
                 {
                     string input = othertext;
                     string output = input.Split('{', '}')[1];
-                    email = output;
-                    if (email.ToLower() == "black")
+                    arg = output;
+                    if (arg.ToLower() == "black")
                     {
-                        label2.ForeColor = Color.Black;
-                        othertext = othertext.Replace("{" + email + "}", "");
+                        BodyText.ForeColor = Color.Black;
+                        othertext = othertext.Replace("{" + arg + "}", "");
                     }
-                    else if (email.ToLower() == "white")
+                    else if (arg.ToLower() == "white")
                     {
-                        label2.ForeColor = Color.White;
-                        othertext = othertext.Replace("{" + email + "}", "");
+                        BodyText.ForeColor = Color.White;
+                        othertext = othertext.Replace("{" + arg + "}", "");
                     }
-                    else if (email.ToLower() == "red")
+                    else if (arg.ToLower() == "red")
                     {
-                        label2.ForeColor = Color.Red;
-                        othertext = othertext.Replace("{" + email + "}", "");
+                        BodyText.ForeColor = Color.Red;
+                        othertext = othertext.Replace("{" + arg + "}", "");
                     }
-                    else if (email.ToLower() == "green")
+                    else if (arg.ToLower() == "green")
                     {
-                        label2.ForeColor = Color.Green;
-                        othertext = othertext.Replace("{" + email + "}", "");
+                        BodyText.ForeColor = Color.Green;
+                        othertext = othertext.Replace("{" + arg + "}", "");
                     }
-                    else if (email.ToLower() == "brown")
+                    else if (arg.ToLower() == "brown")
                     {
-                        label2.ForeColor = Color.Brown;
-                        othertext = othertext.Replace("{" + email + "}", "");
+                        BodyText.ForeColor = Color.Brown;
+                        othertext = othertext.Replace("{" + arg + "}", "");
                     }
-                    else if (email.ToLower() == "tblack")
+                    else if (arg.ToLower() == "tblack")
                     {
                         label1.ForeColor = Color.Black;
-                        othertext = othertext.Replace("{" + email + "}", "");
+                        othertext = othertext.Replace("{" + arg + "}", "");
                     }
-                    else if (email.ToLower() == "twhite")
+                    else if (arg.ToLower() == "twhite")
                     {
                         label1.ForeColor = Color.White;
-                        othertext = othertext.Replace("{" + email + "}", "");
+                        othertext = othertext.Replace("{" + arg + "}", "");
                     }
-                    else if (email.ToLower() == "tred")
+                    else if (arg.ToLower() == "tred")
                     {
                         label1.ForeColor = Color.Red;
-                        othertext = othertext.Replace("{" + email + "}", "");
+                        othertext = othertext.Replace("{" + arg + "}", "");
                     }
-                    else if (email.ToLower() == "tgreen")
+                    else if (arg.ToLower() == "tgreen")
                     {
                         label1.ForeColor = Color.Green;
-                        othertext = othertext.Replace("{" + email + "}", "");
+                        othertext = othertext.Replace("{" + arg + "}", "");
                     }
-                    else if (email.ToLower() == "tbrown")
+                    else if (arg.ToLower() == "tbrown")
                     {
                         label1.ForeColor = Color.SaddleBrown;
-                        othertext = othertext.Replace("{" + email + "}", "");
+                        othertext = othertext.Replace("{" + arg + "}", "");
                     }
                     else
                     {
@@ -106,19 +103,12 @@ namespace Watermark
                         othertext = othertext.Replace("}", "");
                         clickable = true;
                     }
-
-
-                    
-
                 }
                 catch (Exception)
                 {
                     exists = false;
-
                 }
             } while (exists);
-            
-
             oldtext = othertext;
             if (othertext.Contains("{TIME}"))
             {
@@ -128,53 +118,23 @@ namespace Watermark
            
             
             
-            //othertext = othertext.Replace("{SYSSIZE}", Environment.SystemPageSize.ToString());            
-            //othertext = othertext.Replace("{SYSSIZEFORMAT}", FormatBytes(Environment.SystemPageSize));
-            //othertext = othertext.Replace("{TICKCOUNT}", Environment.TickCount.ToString());
-            //othertext = othertext.Replace("{WORKINGSET}", FormatBytes(Environment.WorkingSet));
-            //            { SYSSIZE}
-            //            Size of systems memory page in bytes
-            //{ SYSSIZEFORMAT}
-            //            Size of systems memory page in best match
-            //{ TICKCOUNT}
-            //            milliseconds since system started
-            //{ WORKINGSET}
-            //            amount of physical memory mapped to the process context
-
-
-            label2.Text = othertext;
-            //this.AutoSize = false;
-            
-            //this.Height = this.Height + 100;
+            BodyText.Text = othertext;
             this.Location = Screen.AllScreens[screennum].WorkingArea.Location;
             this.Left = Screen.AllScreens[screennum].WorkingArea.X + Screen.AllScreens[screennum].Bounds.Width - this.Width - 70;
             this.Top = Screen.AllScreens[screennum].WorkingArea.Y + Screen.AllScreens[screennum].Bounds.Height - this.Height - 50;
             this.SendToBack();
         }
-        private static string FormatBytes(long bytes)
-        {
-            string[] Suffix = { "B", "KB", "MB", "GB", "TB" };
-            int i;
-            double dblSByte = bytes;
-            for (i = 0; i < Suffix.Length && bytes >= 1024; i++, bytes /= 1024)
-            {
-                dblSByte = bytes / 1024.0;
-            }
 
-            return String.Format("{0:0.##} {1}", dblSByte, Suffix[i]);
-        }
-
-        private void Form1_Click(object sender, EventArgs e)
+        private void MainForm_Click(object sender, EventArgs e)
         {
+            // Send the form to the back when clicked to stop it from being in the way of other windows
             this.SendToBack();
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing)
-            {
-                e.Cancel = true;
-            }
+            // Don't allow the form to be closed by the user (using ALT+F4)
+            if (e.CloseReason == CloseReason.UserClosing) e.Cancel = true;
         }
         protected override CreateParams CreateParams
         {
@@ -185,41 +145,14 @@ namespace Watermark
                 return Params;
             }
         }
-        private void Form1_Activated(object sender, EventArgs e)
+        private void MainForm_Activated(object sender, EventArgs e)
         {
             this.SendToBack();
         }
 
-        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        private void TitleText_DoubleClick(object sender, EventArgs e)
         {
-            
-        }
-
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
-            //if (e.KeyCode == Keys.F16)
-            //{
-
-            //    if (this.TransparencyKey == Color.White)
-            //        this.TransparencyKey = this.BackColor;
-            //    else
-            //        this.TransparencyKey = Color.White;
-            //}
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_DoubleClick(object sender, EventArgs e)
-        {
-            if (Clipboard.GetText() == label1.Text || Clipboard.GetText() == label2.Text)
+            if (Clipboard.GetText() == label1.Text || Clipboard.GetText() == BodyText.Text)
             {
                 Clipboard.Clear();
             }
@@ -227,34 +160,21 @@ namespace Watermark
             {
                 try
                 {
-                    if (IsValidEmail(email))
-                    {
-                        Process.Start("mailto:" + email);
-                    }
-                    //else if (email.ToLower() == "exit")
-                    //{
-                    //    Environment.Exit(1);
-                    //}
-                    else
-                    {
-                        Process.Start(email);
-                        //MessageBox.Show("HJ");
-                    }
+                    if (IsValidEmail(arg)) Process.Start("mailto:" + arg);
+                    else Process.Start(arg);
                 }
                 catch
                 {
-                    
+                    // Do nothing to prevent crashing
                 }
-                
-
             }
-                
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void OnLoad_Tick(object sender, EventArgs e)
         {
+            // Catch the form when it is loaded and send it to the back
             this.SendToBack();
-            timer1.Stop();
+            OnLoadTimer.Stop();
         }
         public static bool IsValidEmail(string email)
         {
@@ -266,7 +186,6 @@ namespace Watermark
                 // Normalize the domain
                 email = Regex.Replace(email, @"(@)(.+)$", DomainMapper,
                                       RegexOptions.None, TimeSpan.FromMilliseconds(200));
-
                 // Examines the domain part of the email and normalizes it.
                 string DomainMapper(Match match)
                 {
@@ -304,7 +223,7 @@ namespace Watermark
         private void timetimer_Tick(object sender, EventArgs e)
         {
             othertext = oldtext.Replace("{TIME}", DateTime.Now.ToLongTimeString());
-            label2.Text = othertext;
+            BodyText.Text = othertext;
         }
     }
 }

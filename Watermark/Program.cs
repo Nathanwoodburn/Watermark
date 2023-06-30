@@ -16,7 +16,7 @@ namespace Watermark
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form2(args));            
+            Application.Run(new Loader(args));        
         }
     }
 }
