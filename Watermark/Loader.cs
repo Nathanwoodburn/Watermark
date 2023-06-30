@@ -21,7 +21,6 @@ namespace Watermark
                 Params.ExStyle |= 0x80;
                 return Params;
             }
-
         }
         string orgname = "Watermark";
         string othertext = "Send text through command line\n{white}{tred}For help goto {https://github.com/Nathanwoodburn/Watermark}\nCreated by Nathan Woodburn\nnathan@woodburn.au\n\n";
