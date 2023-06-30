@@ -153,7 +153,7 @@
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
             "Register" = "3:1"
-            "Exclude" = "11:FALSE"
+            "Exclude" = "11:TRUE"
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
@@ -225,7 +225,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Watermark"
         "ProductCode" = "8:{504A989B-1C05-4FD0-9A93-61ACDDD05011}"
-        "PackageCode" = "8:{75C4DC90-1DC7-40FC-9DD1-917AE4AA3B6E}"
+        "PackageCode" = "8:{B4007B29-1A69-471B-BD31-F7009EB31E9E}"
         "UpgradeCode" = "8:{A7C2F1EE-8F45-480B-9967-6842ED543629}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
