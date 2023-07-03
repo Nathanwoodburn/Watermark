@@ -51,14 +51,30 @@ namespace Watermark
                 watermarks[i] = new MainForm(i, orgname, othertext);
                 watermarks[i].Show();
             }
-            SystemEvents.DisplaySettingsChanged += RefreshScreens;
+            SystemEvents.DisplaySettingsChanged += OnNewScreens;
+            SystemEvents.SessionSwitch += OnUnlock;
+
+        }
+        private void OnUnlock(object sender, SessionSwitchEventArgs e)
+        {
+            if (e.Reason == SessionSwitchReason.SessionUnlock)
+            {
+                // User unlocked the session, refresh the display
+                RefreshScreens();
+            }
         }
 
-        private void RefreshScreens(object sender, EventArgs e)
+
+        private void OnNewScreens(object sender, EventArgs e)
+        {
+            RefreshScreens();   
+        }
+        private void RefreshScreens()
         {
             foreach (MainForm form in watermarks)
             {
                 form.Close();
+                form.Dispose();
             }
             watermarks = new MainForm[Screen.AllScreens.Count()];
             for (int i = 0; i < Screen.AllScreens.Count(); i++)
