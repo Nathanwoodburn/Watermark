@@ -49,6 +49,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -65,6 +73,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -181,15 +197,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Watermark"
-        "ProductCode" = "8:{504A989B-1C05-4FD0-9A93-61ACDDD05011}"
-        "PackageCode" = "8:{B4007B29-1A69-471B-BD31-F7009EB31E9E}"
+        "ProductCode" = "8:{C65781B4-62DD-476D-8FE9-D539828BA3D6}"
+        "PackageCode" = "8:{AEBB6DB6-4610-45EE-86E6-C42A9237D34B}"
         "UpgradeCode" = "8:{A7C2F1EE-8F45-480B-9967-6842ED543629}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.2.0"
         "Manufacturer" = "8:Nathan.Woodburn/"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
